@@ -1,6 +1,6 @@
 package calculator;
 
-import calculator.Calculator;
+import calculator.model.Calculator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
