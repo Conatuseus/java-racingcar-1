@@ -10,10 +10,8 @@ import java.util.List;
 public class Controller {
     List<Car> carList = new ArrayList<>();
 
-    public void run() {
-        String[] carNames = View.inputNameOfCar();
+    public void run(String[] carNames, int numberOfTry) {
         this.carListInit(carNames);
-        int numberOfTry = View.inputNumberOfTry();
         this.moveCarsByNumberOfTry(numberOfTry);
 
     }
