@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import java.util.List;
+
 public class Car {
     private final static int POSSIBLE_MOVE = 4;
 
@@ -22,6 +24,12 @@ public class Car {
     public void move(boolean isEnableGo) {
         if (isEnableGo) {
             position++;
+        }
+    }
+
+    public void addWinners(List<String> winnerList, int maxPosition){
+        if(this.getPosition() == maxPosition){
+            winnerList.add(this.getName());
         }
     }
 

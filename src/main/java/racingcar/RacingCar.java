@@ -2,6 +2,7 @@ package racingcar;
 
 import racingcar.controller.Controller;
 import racingcar.model.CarList;
+import racingcar.model.WinningCars;
 import racingcar.view.View;
 
 public class RacingCar {
@@ -15,5 +16,6 @@ public class RacingCar {
             carList = controller.moveCar(carList);
             View.printCars(carList);
         }
+        View.printWinningCars(controller.getWinningCars(carList));
     }
 }
