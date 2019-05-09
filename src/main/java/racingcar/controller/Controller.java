@@ -15,6 +15,7 @@ public class Controller {
         this.carListInit(carNames);
         int numberOfTry = View.inputNumberOfTry();
         this.moveCarsByNumberOfTry(numberOfTry);
+
     }
 
     private void moveCarsByNumberOfTry(int numberOfTry) {
