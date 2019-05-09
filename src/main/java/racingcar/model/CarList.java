@@ -12,6 +12,11 @@ public class CarList {
         }
     }
 
+    /* 테스트를 위한 생성자 */
+    public CarList(ArrayList<Car> carList){
+        this.carList = carList;
+    }
+
     public List<Car> getCarList() {
         return carList;
     }

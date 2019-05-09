@@ -11,6 +11,12 @@ public class Car {
         this.position = 0;
     }
 
+    /* 테스트를 위한 생성자 */
+    public Car(String name, int position) {
+        this.name = name;
+        this.position = position;
+    }
+
     public String getName() {
         return name;
     }
