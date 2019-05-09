@@ -32,7 +32,7 @@ public class CarList {
         int maxPosition = START_POSITION;
         WinningCars winningCars = new WinningCars();
         for (Car car : carList) {
-            maxPosition = Integer.max(maxPosition, car.getPosition());
+            maxPosition = car.getMaxPosition(maxPosition);
         }
         for (Car car : carList) {
             car.addWinners(winningCars.getWinningCarNames(), maxPosition);

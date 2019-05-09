@@ -37,6 +37,10 @@ public class Car {
         }
     }
 
+    public int getMaxPosition(int maxPosition) {
+        return Integer.max(this.position, maxPosition);
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
