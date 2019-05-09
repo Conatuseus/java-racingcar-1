@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
@@ -28,7 +29,7 @@ public final class View {
 
     public static String[] inputNameOfCar() {
         String[] scannedName;
-        do{
+        do {
             outputLine("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
             scannedName = sc.nextLine().split(",");                     // ','을 기준으로 나눔
         } while (!isNamesValid(scannedName));
@@ -36,24 +37,29 @@ public final class View {
     }
 
     public static boolean isNamesValid(String[] scannedName) {
-        for (String name : scannedName) {
-            if ((name.length() > VALID_NAME_LENGTH) || (!name.matches(ALPHABET_REGEX))) {
-                outputLine("잘못 입력하였습니다.(5글자 이하 영문자, 중복되지 않는 이름을 입력하세요)");
-                return false;                   // 이름이 5보다 크거나, 알파벳 이외의 문자가 있으면
-            }
+        int index = 0;
+        while (index < scannedName.length && isNameValid(scannedName[index])) {
+            index++;                                                                    // 이름이 5보다 크거나, 알파벳 이외의 문자가 있으면
         }
-        return !isNameOverlap(scannedName);        // 중복된 이름이 있는지 없는지 반환
+
+        if(isNameOverlap(scannedName)){
+            outputLine("중복된 이름이 있습니다. 다시 입력하세요.");
+            return false;
+        }
+        return true;
+    }
+
+    private static boolean isNameValid(String name) {
+        if ((name.length() > VALID_NAME_LENGTH) || (!name.matches(ALPHABET_REGEX))) {
+            outputLine("잘못 입력하였습니다.(5글자 이하 영문자 이름을 입력하세요)");
+            return false;
+        }
+        return true;
     }
 
     private static boolean isNameOverlap(String[] scannedName) {
-        Set<String> hashSet = new HashSet<>();
-        for (String name : scannedName) {
-            if (hashSet.contains(name)) {
-                return true;                // 해쉬셋에 이미 있는 이름이면 true 반환
-            }
-            hashSet.add(name);              // 해쉬셋에 없는 이름이면 해쉬셋에 추가
-        }
-        return false;           // 중복된 이름이 없으면
+        Set<String> hashSet = new HashSet<>(Arrays.asList(scannedName));
+        return scannedName.length != hashSet.size();
     }
 
     public static int inputNumberOfTry() {
