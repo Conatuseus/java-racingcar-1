@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Controller {
-    public List<Car> carList=new ArrayList<>();
+    List<Car> carList=new ArrayList<>();
 
     public void run(){
         String[] carNames= View.inputNameOfCar();
@@ -15,7 +15,7 @@ public class Controller {
 
     }
 
-    public void carListInit(String[] carNames){
+    void carListInit(String[] carNames){
         for(String carName: carNames){
             carList.add(new Car(carName));
         }
