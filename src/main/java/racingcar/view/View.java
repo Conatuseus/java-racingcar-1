@@ -41,12 +41,10 @@ public final class View {
         while (index < scannedName.length && isNameValid(scannedName[index])) {
             index++;                                                                    // 이름이 5보다 크거나, 알파벳 이외의 문자가 있으면
         }
-
-        if(isNameOverlap(scannedName)){
-            outputLine("중복된 이름이 있습니다. 다시 입력하세요.");
+        if (index < scannedName.length) {
             return false;
         }
-        return true;
+        return !isNameOverlap(scannedName);
     }
 
     private static boolean isNameValid(String name) {
@@ -59,7 +57,11 @@ public final class View {
 
     private static boolean isNameOverlap(String[] scannedName) {
         Set<String> hashSet = new HashSet<>(Arrays.asList(scannedName));
-        return scannedName.length != hashSet.size();
+        if (scannedName.length != hashSet.size()) {
+            outputLine("중복된 이름이 있습니다. 다시 입력하세요.");
+            return true;
+        }
+        return false;
     }
 
     public static int inputNumberOfTry() {
