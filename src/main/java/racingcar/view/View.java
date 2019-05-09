@@ -28,20 +28,17 @@ public final class View {
 
     public static String[] inputNameOfCar() {
         String[] scannedName;
-        while (true) {
+        do{
             outputLine("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
             scannedName = sc.nextLine().split(",");                     // ','을 기준으로 나눔
-
-            if (isNamesValid(scannedName)) {
-                return scannedName;                                            // 옳은 입력이면 자동차 이름 배열 반환
-            }
-            outputLine("잘못 입력하였습니다.(5글자 이하 영문자, 중복되지 않는 이름을 입력하세요)");
-        }
+        } while (!isNamesValid(scannedName));
+        return scannedName;
     }
 
     public static boolean isNamesValid(String[] scannedName) {
         for (String name : scannedName) {
             if ((name.length() > VALID_NAME_LENGTH) || (!name.matches(ALPHABET_REGEX))) {
+                outputLine("잘못 입력하였습니다.(5글자 이하 영문자, 중복되지 않는 이름을 입력하세요)");
                 return false;                   // 이름이 5보다 크거나, 알파벳 이외의 문자가 있으면
             }
         }
