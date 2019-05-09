@@ -11,8 +11,9 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
 
 public class ControllerTest {
     Controller controller;
+
     @BeforeEach
-    void setup(){
+    void setup() {
         controller = new Controller();
     }
 
@@ -26,16 +27,16 @@ public class ControllerTest {
     }
 
     @Test
-    void 승리한_자동차_목록이_잘_나오는지_확인(){
-        CarList carList=new CarList("a,b,c,d".split(","));
-        WinningCars winningCars=carList.getWinnerCars();
+    void 승리한_자동차_목록이_잘_나오는지_확인() {
+        CarList carList = new CarList("a,b,c,d".split(","));
+        WinningCars winningCars = carList.getWinnerCars();
 
         WinningCars tmp = new WinningCars();
         tmp.getWinningCarNames().add("a");
         tmp.getWinningCarNames().add("b");
         tmp.getWinningCarNames().add("c");
         tmp.getWinningCarNames().add("d");
-        for(int i =0;i<tmp.getWinningCarNames().size();i++){
+        for (int i = 0; i < tmp.getWinningCarNames().size(); i++) {
             assertThat(winningCars.getWinningCarNames().get(i)).isEqualTo(tmp.getWinningCarNames().get(i));
         }
     }

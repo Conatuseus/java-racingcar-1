@@ -27,8 +27,8 @@ public class Car {
         }
     }
 
-    public void addWinners(List<String> winnerList, int maxPosition){
-        if(this.getPosition() == maxPosition){
+    public void addWinners(List<String> winnerList, int maxPosition) {
+        if (this.getPosition() == maxPosition) {
             winnerList.add(this.getName());
         }
     }

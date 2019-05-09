@@ -34,7 +34,6 @@ public class CarList {
         return winningCars;
     }
 
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
