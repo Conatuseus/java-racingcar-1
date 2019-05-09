@@ -5,8 +5,6 @@ import org.junit.jupiter.api.Test;
 import racingcar.model.CarList;
 import racingcar.model.WinningCars;
 
-import java.util.List;
-
 import static org.assertj.core.api.Java6Assertions.assertThat;
 
 public class ControllerTest {

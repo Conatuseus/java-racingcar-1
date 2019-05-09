@@ -3,8 +3,6 @@ package racingcar.model;
 import java.util.List;
 
 public class Car {
-    private final static int POSSIBLE_MOVE = 4;
-
     private final String name;
     private int position;
 

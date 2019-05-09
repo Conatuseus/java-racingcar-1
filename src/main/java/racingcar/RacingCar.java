@@ -2,7 +2,6 @@ package racingcar;
 
 import racingcar.controller.Controller;
 import racingcar.model.CarList;
-import racingcar.model.WinningCars;
 import racingcar.view.View;
 
 public class RacingCar {
