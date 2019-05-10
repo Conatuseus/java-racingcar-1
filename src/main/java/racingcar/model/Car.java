@@ -55,6 +55,10 @@ public class Car {
         return name.matches(ALPHABET_REGEX);
     }
 
+    public boolean isEqualName(String name) {
+        return this.name.equals(name);
+    }
+
     public void move(int randomNumber) {
         if (randomNumber >= POSSIBLE_MOVE) {
             position++;

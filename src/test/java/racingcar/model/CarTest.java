@@ -37,6 +37,10 @@ public class CarTest {
         assertThrows(IllegalArgumentException.class, ()-> new Car("abcdefg"));
     }
 
+    @Test
+    void 올바른_자동차_이름_생성_검사(){
+        assertThat(new Car("abcd").isEqualName("abcd")).isTrue();
+    }
 
     @Test
     void 자동차_정지() {
