@@ -3,6 +3,7 @@ package racingcar.model;
 import org.junit.platform.commons.util.StringUtils;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Car {
     private static final int POSSIBLE_MOVE = 4;
@@ -55,5 +56,19 @@ public class Car {
             sb.append("-");
         }
         return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return (position == car.position) &&
+                Objects.equals(name, car.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, position);
     }
 }
