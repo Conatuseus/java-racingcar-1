@@ -5,11 +5,12 @@ import org.junit.platform.commons.util.StringUtils;
 import java.util.List;
 
 public class Car {
+    private static final int POSSIBLE_MOVE = 4;
     private final String name;
-    private int position=0;
+    private int position = 0;
 
     public Car(String name) {
-        if(StringUtils.isBlank(name)){
+        if (StringUtils.isBlank(name)) {
             throw new IllegalArgumentException("공백 이름은 사용할 수 없습니다.");
         }
 
@@ -30,8 +31,8 @@ public class Car {
         return position;
     }
 
-    public void move(boolean isEnableGo) {
-        if (isEnableGo) {
+    public void move(int randomNumber) {
+        if (randomNumber >= POSSIBLE_MOVE) {
             position++;
         }
     }
