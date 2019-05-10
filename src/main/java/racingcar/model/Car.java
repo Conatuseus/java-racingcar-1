@@ -1,14 +1,19 @@
 package racingcar.model;
 
+import org.junit.platform.commons.util.StringUtils;
+
 import java.util.List;
 
 public class Car {
     private final String name;
-    private int position;
+    private int position=0;
 
     public Car(String name) {
-        this.name = name;
-        this.position = 0;
+        if(StringUtils.isBlank(name)){
+            throw new IllegalArgumentException("공백 이름은 사용할 수 없습니다.");
+        }
+
+        this.name = name.trim();
     }
 
     /* 테스트를 위한 생성자 */
