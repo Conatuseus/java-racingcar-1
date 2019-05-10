@@ -26,14 +26,6 @@ public class Car {
         this.position = position;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public int getPosition() {
-        return position;
-    }
-
     private boolean isValidName(String name) {
         return this.isNameNotNull(name) && this.isNameNotBlank(name.trim())
                 && this.isNameConsistOfAlphabet(name.trim()) && this.isNameRightLength(name.trim());
@@ -66,13 +58,22 @@ public class Car {
     }
 
     public void addWinners(List<String> winnerList, int maxPosition) {
-        if (this.getPosition() == maxPosition) {
-            winnerList.add(this.getName());
+        if (this.position == maxPosition) {
+            winnerList.add(this.name);
         }
     }
 
     public int getMaxPosition(int maxPosition) {
         return Integer.max(this.position, maxPosition);
+    }
+
+    public boolean isMaxPosition(int maxPosition) {
+        return this.position == maxPosition;
+    }
+
+    public List<String> addCarInWinners(List<String> winningCarNames) {
+        winningCarNames.add(this.name);
+        return winningCarNames;
     }
 
     @Override

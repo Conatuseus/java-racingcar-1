@@ -7,7 +7,7 @@ public class CarList {
     private List<Car> carList = new ArrayList<>();
 
     public CarList(String[] carNames) {
-        if(this.isOverlap(carNames)){
+        if (this.isOverlap(carNames)) {
             throw new IllegalArgumentException("중복된 이름이 있습니다.");
         }
         for (String carName : carNames) {
@@ -20,13 +20,20 @@ public class CarList {
         this.carList = carList;
     }
 
-    private boolean isOverlap(String[] carNames){
-        Set<String> hashSet = new HashSet<>(Arrays.asList(carNames));
+    private boolean isOverlap(String[] carNames) {
+        Set<String> hashSet = new HashSet<>();
+        for (String carName : carNames) {
+            hashSet.add(carName.trim());
+        }
         return carNames.length != hashSet.size();
     }
 
-    public List<Car> getCarList() {
-        return carList;
+    public boolean isEqualCarList(List<Car> cars) {
+        int index = 0;
+        while (index < carList.size() && carList.get(index).equals(cars.get(index))) {
+            index++;
+        }
+        return index == carList.size();
     }
 
     public void moveCars() {
@@ -43,6 +50,7 @@ public class CarList {
         }
         for (Car car : carList) {
             car.addWinners(winningCars.getWinningCarNames(), maxPosition);
+            winningCars.addWinners(car,maxPosition);
         }
         return winningCars;
     }
@@ -55,4 +63,5 @@ public class CarList {
         }
         return sb.toString();
     }
+
 }

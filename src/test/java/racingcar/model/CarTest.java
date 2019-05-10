@@ -54,6 +54,18 @@ public class CarTest {
         assertThat(car).isEqualTo(new Car("tmp", 1));
     }
 
+    @Test
+    void 자신의_Position이_maxPosition이_맞을_경우(){
+        car=new Car("a",5);
+        assertThat(car.isMaxPosition(5)).isTrue();
+    }
+
+    @Test
+    void 자신의_Position이_maxPosition이_아닐_경우(){
+        car=new Car("a",0);
+        assertThat(car.isMaxPosition(5)).isFalse();
+    }
+
 
 //
 //    @Test
