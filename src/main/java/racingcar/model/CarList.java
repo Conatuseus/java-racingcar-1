@@ -1,13 +1,15 @@
 package racingcar.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class CarList {
     private static final int START_POSITION = 0;
     private List<Car> carList = new ArrayList<>();
 
     public CarList(String[] carNames) {
+        if(this.isOverlap(carNames)){
+            throw new IllegalArgumentException("중복된 이름이 있습니다.");
+        }
         for (String carName : carNames) {
             carList.add(new Car(carName));
         }
@@ -16,6 +18,11 @@ public class CarList {
     /* 테스트를 위한 생성자 */
     public CarList(ArrayList<Car> carList) {
         this.carList = carList;
+    }
+
+    private boolean isOverlap(String[] carNames){
+        Set<String> hashSet = new HashSet<>(Arrays.asList(carNames));
+        return carNames.length != hashSet.size();
     }
 
     public List<Car> getCarList() {
