@@ -54,10 +54,6 @@ public class Car implements Comparable<Car> {
         }
     }
 
-    public int getMaxPosition(int maxPosition) {
-        return Integer.max(this.position, maxPosition);
-    }
-
     public boolean isMaxPosition(int maxPosition) {
         return this.position == maxPosition;
     }
