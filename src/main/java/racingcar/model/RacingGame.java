@@ -23,7 +23,7 @@ public class RacingGame {
 
     /* 테스트를 위한 생성자 */
     public RacingGame(String[] carNames) {
-        this(carNames,"0");
+        this(carNames, "0");
     }
 
     private boolean isOverlap(String[] carNames) {

@@ -25,10 +25,9 @@ public class WinningCarsTest {
     }
 
     @Test
-    void winningCars에_없는_자동차_검증(){
+    void winningCars에_없는_자동차_검증() {
         assertThat(winningCars.isWinner("b")).isFalse();
     }
-
 
 
 }
