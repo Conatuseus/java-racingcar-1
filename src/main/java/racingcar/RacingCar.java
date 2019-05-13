@@ -1,20 +1,20 @@
 package racingcar;
 
 import racingcar.controller.Controller;
-import racingcar.model.CarList;
+import racingcar.model.Cars;
 import racingcar.view.View;
 
 public class RacingCar {
     public static void main(String[] args) {
         Controller controller = new Controller();
-        CarList carList = controller.makeCarList(View.inputNameOfCar());
+        Cars cars = controller.makeCarList(View.inputNameOfCar());
 
         int numberOfTry = View.inputNumberOfTry();
         View.outputLine("실행 결과");
         for (int i = 0; i < numberOfTry; i++) {
-            carList = controller.moveCar(carList);
-            View.printCars(carList);
+            cars = controller.moveCar(cars);
+            View.printCars(cars);
         }
-        View.printWinningCars(controller.getWinningCars(carList));
+        View.printWinningCars(controller.getWinningCars(cars));
     }
 }

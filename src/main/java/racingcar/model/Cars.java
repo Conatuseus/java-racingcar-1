@@ -2,11 +2,11 @@ package racingcar.model;
 
 import java.util.*;
 
-public class CarList {
+public class Cars {
     private static final int START_POSITION = 0;
     private List<Car> carList = new ArrayList<>();
 
-    public CarList(String[] carNames) {
+    public Cars(String[] carNames) {
         if (this.isOverlap(carNames)) {
             throw new IllegalArgumentException("중복된 이름이 있습니다.");
         }
@@ -16,7 +16,7 @@ public class CarList {
     }
 
     /* 테스트를 위한 생성자 */
-    public CarList(ArrayList<Car> carList) {
+    public Cars(ArrayList<Car> carList) {
         this.carList = carList;
     }
 

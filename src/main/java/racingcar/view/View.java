@@ -1,12 +1,9 @@
 package racingcar.view;
 
-import racingcar.model.CarList;
+import racingcar.model.Cars;
 import racingcar.model.WinningCars;
 
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.Scanner;
-import java.util.Set;
 
 public final class View {
 
@@ -43,8 +40,8 @@ public final class View {
         return false;
     }
 
-    public static void printCars(CarList carList) {
-        outputLine(carList.toString());
+    public static void printCars(Cars cars) {
+        outputLine(cars.toString());
     }
 
     public static void printWinningCars(WinningCars winningCars) {
