@@ -1,22 +1,22 @@
 package racingcar.controller;
 
-import racingcar.model.Cars;
+import racingcar.model.RacingGame;
 import racingcar.model.WinningCars;
 
 
 public class Controller {
 
-    public Cars makeCarList(String[] carNames) {
-        Cars cars = new Cars(carNames);
-        return cars;
+    public RacingGame makeCars(String[] carNames) {
+        RacingGame racingGame = new RacingGame(carNames);
+        return racingGame;
     }
 
-    public Cars moveCar(Cars cars) {
-        cars.moveCars();
-        return cars;
+    public RacingGame moveCar(RacingGame racingGame) {
+        racingGame.moveCars();
+        return racingGame;
     }
 
-    public WinningCars getWinningCars(Cars cars) {
-        return cars.getWinnerCars();
+    public WinningCars getWinningCars(RacingGame racingGame) {
+        return racingGame.getWinnerCars();
     }
 }

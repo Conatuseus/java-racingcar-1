@@ -9,16 +9,16 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class CarsTest {
+public class RacingGameTest {
 
     @Test
     void 자동차_이름_중복_확인() {
-        assertThrows(IllegalArgumentException.class, () -> new Cars("a,a".split(",")));
+        assertThrows(IllegalArgumentException.class, () -> new RacingGame("a,a".split(",")));
     }
 
     @Test
     void 올바른_CarList_생성_확인() {
-        Cars carList = new Cars("a,b,c,d,e".split(","));
+        RacingGame carList = new RacingGame("a,b,c,d,e".split(","));
         List<Car> cars = new ArrayList<>();
         cars.add(new Car("a"));
         cars.add(new Car("b"));

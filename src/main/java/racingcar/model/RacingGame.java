@@ -2,22 +2,22 @@ package racingcar.model;
 
 import java.util.*;
 
-public class Cars {
+public class RacingGame {
     private static final int START_POSITION = 0;
-    private List<Car> carList = new ArrayList<>();
+    private List<Car> cars = new ArrayList<>();
 
-    public Cars(String[] carNames) {
+    public RacingGame(String[] carNames) {
         if (this.isOverlap(carNames)) {
             throw new IllegalArgumentException("중복된 이름이 있습니다.");
         }
         for (String carName : carNames) {
-            carList.add(new Car(carName));
+            cars.add(new Car(carName));
         }
     }
 
     /* 테스트를 위한 생성자 */
-    public Cars(ArrayList<Car> carList) {
-        this.carList = carList;
+    public RacingGame(ArrayList<Car> cars) {
+        this.cars = cars;
     }
 
     private boolean isOverlap(String[] carNames) {
@@ -30,14 +30,14 @@ public class Cars {
 
     public boolean isEqualCarList(List<Car> cars) {
         int index = 0;
-        while (index < carList.size() && carList.get(index).equals(cars.get(index))) {
+        while (index < this.cars.size() && this.cars.get(index).equals(cars.get(index))) {
             index++;
         }
-        return index == carList.size();
+        return index == this.cars.size();
     }
 
     public void moveCars() {
-        for (Car car : carList) {
+        for (Car car : cars) {
             car.move(Random.createRandomNumber());
         }
     }
@@ -45,10 +45,10 @@ public class Cars {
     public WinningCars getWinnerCars() {
         int maxPosition = START_POSITION;
         WinningCars winningCars = new WinningCars();
-        for (Car car : carList) {
+        for (Car car : cars) {
             maxPosition = car.getMaxPosition(maxPosition);
         }
-        for (Car car : carList) {
+        for (Car car : cars) {
             winningCars.addWinners(car, maxPosition);
         }
         return winningCars;
@@ -57,7 +57,7 @@ public class Cars {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        for (Car car : carList) {
+        for (Car car : cars) {
             sb.append(car.toString()).append("\n");
         }
         return sb.toString();
