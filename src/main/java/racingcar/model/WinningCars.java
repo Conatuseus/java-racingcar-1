@@ -28,10 +28,6 @@ public class WinningCars {
         }
     }
 
-    public boolean isWinner(String name) {
-        return winningCarNames.contains(name);
-    }
-
     @Override
     public String toString() {
         return String.join(", ", winningCarNames) + " 가 최종 우승했습니다.";
