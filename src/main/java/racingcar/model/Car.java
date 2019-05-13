@@ -69,12 +69,12 @@ public class Car implements Comparable<Car> {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(this.name).append(" : ");
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(this.name).append(" : ");
         for (int i = 0; i < this.position; i++) {
-            sb.append("-");
+            stringBuilder.append("-");
         }
-        return sb.toString();
+        return stringBuilder.toString();
     }
 
     @Override
