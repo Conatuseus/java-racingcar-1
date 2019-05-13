@@ -7,12 +7,14 @@ import racingcar.view.View;
 public class RacingCar {
     public static void main(String[] args) {
         Controller controller = new Controller();
-        RacingGame racingGame = controller.makeCars(View.inputNameOfCar());
+        String[] carNames = View.inputNameOfCar();
+        String numberOfTry = View.inputNumberOfTry();
 
-        int numberOfTry = View.inputNumberOfTry();
+        RacingGame racingGame = controller.makeCars(carNames, numberOfTry);
         View.outputLine("실행 결과");
-        for (int i = 0; i < numberOfTry; i++) {
-            racingGame = controller.moveCar(racingGame);
+
+        for (int i = 0; i < Integer.parseInt(numberOfTry); i++) {
+            racingGame = controller.playRacing(racingGame);
             View.printCars(racingGame);
         }
         View.printWinningCars(controller.getWinningCars(racingGame));

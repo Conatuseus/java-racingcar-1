@@ -4,36 +4,31 @@ import java.util.*;
 
 public class RacingGame {
     private static final int START_POSITION = 0;
-    private List<Car> cars = new ArrayList<>();
+    private static final String NUMBER_REGEX = "[1-9][0-9]*$";  // String matches에 사용할 숫자 REGEX 정의
 
-    public RacingGame(String[] carNames) {
-        if (this.isOverlap(carNames)) {
-            throw new IllegalArgumentException("중복된 이름이 있습니다.");
-        }
+    private Set<Car> cars = new LinkedHashSet<>();
+    private int numberOfTry;
+
+    public RacingGame(String[] carNames, String numberOfTry) {
         for (String carName : carNames) {
             cars.add(new Car(carName));
         }
+        if (this.isOverlap(carNames)) {
+            throw new IllegalArgumentException("중복된 이름이 있습니다.");
+        }
+        if (!numberOfTry.matches(NUMBER_REGEX)) {
+            throw new IllegalArgumentException("올바른 시도 횟수를 입력해야 합니다.");
+        }
+        this.numberOfTry = Integer.parseInt(numberOfTry);
     }
 
     /* 테스트를 위한 생성자 */
-    public RacingGame(ArrayList<Car> cars) {
-        this.cars = cars;
-    }
+//    public RacingGame(ArrayList<Car> cars) {
+//        this.cars = cars;
+//    }
 
     private boolean isOverlap(String[] carNames) {
-        Set<String> hashSet = new HashSet<>();
-        for (String carName : carNames) {
-            hashSet.add(carName.trim());
-        }
-        return carNames.length != hashSet.size();
-    }
-
-    public boolean isEqualCarList(List<Car> cars) {
-        int index = 0;
-        while (index < this.cars.size() && this.cars.get(index).equals(cars.get(index))) {
-            index++;
-        }
-        return index == this.cars.size();
+        return this.cars.size() != carNames.length;
     }
 
     public void moveCars() {
@@ -60,7 +55,21 @@ public class RacingGame {
         for (Car car : cars) {
             sb.append(car.toString()).append("\n");
         }
+
         return sb.toString();
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        RacingGame that = (RacingGame) o;
+        return numberOfTry == that.numberOfTry &&
+                Objects.equals(cars, that.cars);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(cars, numberOfTry);
+    }
 }

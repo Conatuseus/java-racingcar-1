@@ -9,9 +9,6 @@ public final class View {
 
     private static final Scanner sc = new Scanner(System.in);
 
-    /* String matches에 사용할 숫자 REGEX 정의*/
-    private static final String NUMBER_REGEX = "[1-9][0-9]*$";
-
     public static void outputLine(String aString) {
         System.out.println(aString);
     }
@@ -21,23 +18,9 @@ public final class View {
         return sc.nextLine().split(",");
     }
 
-    public static int inputNumberOfTry() {
-        String scannedNumberOfTry;
+    public static String inputNumberOfTry() {
         outputLine("시도할 횟수는 몇회인가요?");
-
-        do {
-            scannedNumberOfTry = sc.nextLine();
-        } while (!isValidTryNumber(scannedNumberOfTry));
-
-        return Integer.parseInt(scannedNumberOfTry);
-    }
-
-    public static boolean isValidTryNumber(String scannedNumberOfTry) {
-        if (scannedNumberOfTry.matches(NUMBER_REGEX)) {
-            return true;
-        }
-        outputLine("잘못된 입력입니다. 1이상의 정수만 입력하세요.");    // 올바른 수가 아니면
-        return false;
+        return sc.nextLine();
     }
 
     public static void printCars(RacingGame racingGame) {

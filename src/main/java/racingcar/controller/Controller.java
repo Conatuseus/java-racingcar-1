@@ -6,12 +6,11 @@ import racingcar.model.WinningCars;
 
 public class Controller {
 
-    public RacingGame makeCars(String[] carNames) {
-        RacingGame racingGame = new RacingGame(carNames);
-        return racingGame;
+    public RacingGame makeCars(String[] carNames, String numberOfTry) {
+        return new RacingGame(carNames, numberOfTry);
     }
 
-    public RacingGame moveCar(RacingGame racingGame) {
+    public RacingGame playRacing(RacingGame racingGame) {
         racingGame.moveCars();
         return racingGame;
     }
