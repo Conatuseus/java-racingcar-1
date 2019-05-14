@@ -1,10 +1,12 @@
 package calculator;
 
-import calculator.controller.Controller;
+import calculator.model.CalculateQueue;
+import calculator.view.View;
 
 public class Main {
     public static void main(String[] args) {
-        Controller controller = new Controller();
-        controller.run();
+        String[] input = View.input();
+        CalculateQueue calculateQueue = new CalculateQueue(input);
+        View.println(String.valueOf(calculateQueue.calculate()));
     }
 }
