@@ -8,17 +8,9 @@ public class View {
     public static String[] input() {
         String[] values;
         do {
-            print("계산할 수식을 입력해 주세요 : ");
+            System.out.println("계산할 수식을 입력해 주세요 : ");
             values = scanner.nextLine().split(" ");
-        } while (!Validator.isValid(values));
+        } while (!InputValidator.isValid(values));
         return values;
-    }
-
-    public static void println(String aString){
-        System.out.println(aString);
-    }
-
-    public static void print(String aString){
-        System.out.println(aString);
     }
 }
