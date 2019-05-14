@@ -7,6 +7,6 @@ public class Main {
     public static void main(String[] args) {
         String[] input = View.input();
         CalculateQueue calculateQueue = new CalculateQueue(input);
-        View.println(String.valueOf(calculateQueue.calculate()));
+        System.out.println(calculateQueue.calculate());
     }
 }

@@ -16,7 +16,7 @@ public class CalculateQueue {
         while (!queue.isEmpty()) {
             String operator = queue.poll();
             double operand = Double.parseDouble(queue.poll());
-            result = Operator.findOperator(operator).calculate(result,operand);
+            result = Operator.findOperator(operator).calculate(result, operand);
         }
         return result;
     }
