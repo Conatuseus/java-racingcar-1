@@ -5,8 +5,8 @@ import calculator.view.View;
 
 public class Main {
     public static void main(String[] args) {
-        String[] input = View.input();
+        String[] input = View.inputFormula();
         CalculateQueue calculateQueue = new CalculateQueue(input);
-        System.out.println(calculateQueue.calculate());
+        View.outputLine(String.valueOf(calculateQueue.calculate()));
     }
 }
